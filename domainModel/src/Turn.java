@@ -16,7 +16,10 @@ public class Turn {
 	}
 
     void reset() {
-        // TODO: Create players & set active player
+        for (int i=0; i<Turn.NUMBER_PLAYERS; i++){
+            players.add(new Player(Color.values()[i], this.board));
+        }
+        this.activePlayer = 0;
     }
 
     void play() {

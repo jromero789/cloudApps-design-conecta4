@@ -27,13 +27,11 @@ public class Connect4 {
 	}
 
     private boolean isConect4() {
-		//	return this.board.isTicTacToe(this.turn.getActiveColor());
-		return true;
+		return this.board.isConnect4(this.turn.getActiveColor());
 	}
 	
 	private boolean isDraw() {
-		//	return this.board.isTicTacToe(this.turn.getActiveColor());
-		return true;
+		return this.board.isDraw();
 	}
 
 	private void writeResult(){

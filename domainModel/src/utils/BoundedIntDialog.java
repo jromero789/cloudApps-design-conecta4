@@ -1,6 +1,8 @@
-public class BoundedIntDialog {
+package utils;
 
-	private ClosedInterval LIMITS;
+public class BoundedIntDialog {
+    
+    private ClosedInterval LIMITS;
 	private static final String ERROR_MESSAGE = "Invalid number";
 
 	public BoundedIntDialog(int min, int max){
@@ -21,5 +23,4 @@ public class BoundedIntDialog {
 		} while(!ok);
 		return value;
 	}
-    
 }
