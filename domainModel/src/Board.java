@@ -57,6 +57,6 @@ public class Board {
     }
 
     void write() {
-        // TODO: 
+        // TODO: Show board
     }
 }

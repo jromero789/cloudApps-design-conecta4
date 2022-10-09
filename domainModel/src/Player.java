@@ -1,4 +1,3 @@
-import utils.Coordinate;
 import utils.BoundedIntDialog;
 
 public class Player {
@@ -30,7 +29,7 @@ public class Player {
     Integer getColumn(Message message){
 		assert message != null;
         
-		BoundedIntDialog boundedIntDialog = new BoundedIntDialog(0, this.board.NUM_COLUMNS - 1);		 
+		BoundedIntDialog boundedIntDialog = new BoundedIntDialog(0, Board.NUM_COLUMNS - 1);		 
 		return boundedIntDialog.read(Message.ENTER_COLUMN_TO_PUT.toString());
 	}
 
