@@ -3,6 +3,7 @@ import utils.Console;
 enum Message {
 	TITLE("--- CONNECT4 ---"),
 	ENTER_COLUMN_TO_PUT("Enter a column to put a token:"),
+	IS_DRAW("Draw"),
     PLAYER_WIN("#player player: You win!!! :-)"), 
 	RESUME("Do you want to continue");
 	

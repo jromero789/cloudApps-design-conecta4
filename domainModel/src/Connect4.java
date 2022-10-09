@@ -23,7 +23,7 @@ public class Connect4 {
 			this.turn.play();
 			this.board.write();
 		} while (!this.isConect4() && !this.isDraw());
-		// this.turn.writeWinner();
+		writeResult();
 	}
 
     private boolean isConect4() {
@@ -39,7 +39,7 @@ public class Connect4 {
 			this.turn.writeWinner();
 		}
 		if(this.isDraw()){
-			// TODO:
+			Message.IS_DRAW.writeln();
 		}
 	}
 
