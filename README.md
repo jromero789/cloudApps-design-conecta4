@@ -25,3 +25,8 @@ Contiene modelo del dominio en diagrama de clases
 - Comentario: Se guarda información replicada en el board, cómodo para acceso pero puede dar problemas de coherencia
 - ToDo: Verificación de connecta4 (usando diagonales entre coordenadas) y funcionamiento undo, redo
 
+Autoevaluación (6.5p)
+1. (2.0p) Conoces cosas que no conocias 2.5p
+2. (2.0p) Comprendes los conceptos 2.5p (patrones, conocimiento, software) 2.5p
+3. (1.5p) Leyendo el tictactoe identificas los conceptos enseñados en teoría. 2.5p
+4. (1.0p) Lo que yo creo que valdria la practica. 2.5p
