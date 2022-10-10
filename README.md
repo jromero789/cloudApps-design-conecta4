@@ -1,9 +1,11 @@
 # cloudApps-design-conecta4
-Master: CloudApps
-Asignatura: Diseño y calidad de software. Práctica Conecta4.
-Alumno: Juan Romero González
-Email: j.romero1.2016@alumnos.urjc.es
-Fecha: 10/10/2022
+
+Datos:
+- Master: CloudApps
+- Asignatura: Diseño y calidad de software. Práctica Conecta4.
+- Alumno: Juan Romero González
+- Email: j.romero1.2016@alumnos.urjc.es
+- Fecha: 10/10/2022
 
 Contenido:
 
