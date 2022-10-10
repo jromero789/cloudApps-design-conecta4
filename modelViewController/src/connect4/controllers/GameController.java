@@ -1,16 +1,16 @@
 package connect4.controllers;
 
+import connect4.models.Column;
+import connect4.models.Coordinate;
 import connect4.models.Game;
 import connect4.views.ErrorView;
 import connect4.views.GameView;
 import connect4.views.UserPlayerView;
 import connect4.types.Error;
 import connect4.types.PlayerType;
-import utils.Coordinate;
 
 class GameController {
-    static final String ENTER_COORDINATE_TO_PUT = "Enter a coordinate to put a token:";
-	static final String ENTER_COORDINATE_TO_REMOVE = "Enter a coordinate to remove a token:";
+    static final String ENTER_COORDINATE_TO_PUT = "Enter a column to put a token:";
 
 	private GameView gameView;
 	private Game game;
@@ -27,10 +27,10 @@ class GameController {
 	void doMovement() {
 		Error error;
 		
-		Coordinate coordinate;
+		Column column;
 		do {
-			coordinate = this.readCoordinateToPut();
-			error = this.game.putTokenPlayerFromTurn(coordinate);
+			column = this.readColumnToPut();
+			error = this.game.putTokenPlayerFromTurn(column);
 			if (error != null && this.isUserPlayerType()) {
 				new ErrorView(error).writeln();
 			}
@@ -41,51 +41,28 @@ class GameController {
 		return this.game.getTypeOfTokenPlayerFromTurn() == PlayerType.USER_PLAYER;
 	}
 
-	private Coordinate readCoordinateToPut() {
-		Coordinate coordinate;
+	private Column readColumnToPut() {
+		Column column;
 		do {
-			coordinate = this.isUserPlayerType()
+			column = this.isUserPlayerType()
 					? new UserPlayerView().readCoordinate(GameController.ENTER_COORDINATE_TO_PUT)
 					: this.generateRandomCoordinate();
-			if (!coordinate.isValid() && this.isUserPlayerType()) {
+			if (!column.isValid() && this.isUserPlayerType()) {
 				new ErrorView(Error.WRONG_COORDINATES).writeln();
 			}
-		} while (!coordinate.isValid());
-		return coordinate;
+		} while (!column.isValid());
+		return column;
 	}
 
-	private Coordinate generateRandomCoordinate() {
-		Coordinate coordinateRandom = new Coordinate();
-		coordinateRandom.random();
-		return coordinateRandom;
-	}
-
-	private Coordinate[] readCoordinateToMove() {
-		Coordinate[] coordinates = new Coordinate[2];
-		do {
-			coordinates[0] = this.isUserPlayerType()
-					? new UserPlayerView().readCoordinate(GameController.ENTER_COORDINATE_TO_REMOVE)
-					: this.generateRandomCoordinate();
-			assert coordinates[0].isValid();
-			if (!coordinates[0].isValid() && this.isUserPlayerType()) {
-				new ErrorView(Error.WRONG_COORDINATES).writeln();
-			}
-		} while (!coordinates[0].isValid());
-		do {
-			coordinates[1] = this.isUserPlayerType()
-					? new UserPlayerView().readCoordinate(GameController.ENTER_COORDINATE_TO_PUT)
-					: this.generateRandomCoordinate();
-			assert coordinates[1].isValid();
-			if (!coordinates[1].isValid() && this.isUserPlayerType()) {
-				new ErrorView(Error.WRONG_COORDINATES).writeln();
-			}
-		} while (!coordinates[1].isValid());
-		return coordinates;
+	private Column generateRandomCoordinate() {
+		Column columnRandom = new Column();
+		columnRandom.random();
+		return columnRandom;
 	}
 
 	void writeBoard() {
 		this.gameView.writeSeparator();
-		for (int i = 0; i < this.game.getCoordinateDimension(); i++) {
+		for (int i = this.game.getCoordinateRowDimension() - 1; i >= 0; i--) {
 			this.printRowBoard(i);
         }
         this.gameView.writeSeparator();
@@ -93,7 +70,7 @@ class GameController {
 
 	private void printRowBoard(int row) {
         this.gameView.writeVerticalLineLeft();
-		for (int j = 0; j < this.game.getCoordinateDimension(); j++) {
+		for (int j = 0; j < this.game.getCoordinateColumnDimension(); j++) {
 			this.printSquareBoard(new Coordinate(row, j));
 		}
 		this.gameView.writeLineBreak();

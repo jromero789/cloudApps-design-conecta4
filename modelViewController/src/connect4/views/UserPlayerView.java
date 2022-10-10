@@ -1,11 +1,11 @@
 package connect4.views;
 
-import utils.Coordinate;
+import connect4.models.Column;
 
 public class UserPlayerView {
 
-    public Coordinate readCoordinate(String textToDisplay) {
-        Coordinate coordinate = new CoordinateView().read(textToDisplay);
+    public Column readCoordinate(String textToDisplay) {
+        Column coordinate = new ColumnView().read(textToDisplay);
         return coordinate;
     }
 }

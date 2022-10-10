@@ -3,15 +3,12 @@ package connect4.models;
 import connect4.types.PlayerType;
 import connect4.types.Token;
 import connect4.types.Error;
-import utils.Coordinate;
 
 
 public class Game {
     
     private Board board;
-
 	private Player[] players;
-
     private Turn turn;
     
     public Game() {
@@ -46,17 +43,17 @@ public class Game {
         return playersCopy;
     }
 
-    public boolean isBoardComplete() {
-        return this.board.isCompleted();
-    }
+    // public boolean isBoardComplete() {
+    //    return this.board.isCompleted();
+    //}
 
-    public Error putTokenPlayerFromTurn(Coordinate coordinate) {
-        Error error = this.getPutCoordinateError(coordinate);
+    public Error putTokenPlayerFromTurn(Column column) {
+        Error error = this.getPutCoordinateError(column);
         assert error == null;
         if (error != null) {
             return error;
         }
-        this.turn.getPlayer().put(coordinate);
+        this.turn.getPlayer().put(column);
         this.changeTurn();
         return null;
     }
@@ -65,11 +62,11 @@ public class Game {
         return this.turn.getPlayer().getType();
     }
 
-    public Error getPutCoordinateError(Coordinate coordinate) {
+    public Error getPutCoordinateError(Column column) {
         //if (!board.isEmpty(coordinate)) {
 		//	return Error.NOT_OWNER;
 		//}
-        // TODO: Implement
+        // TODO: Implement full column
 		return null;
     }
 
@@ -89,8 +86,12 @@ public class Game {
         return this.turn.getValue();
     }
 
-    public int getCoordinateDimension() {
-        return Coordinate.DIMENSION;
+    public int getCoordinateRowDimension() {
+        return Board.NUM_ROWS;
+    }
+
+    public int getCoordinateColumnDimension() {
+        return Board.NUM_COLUMNS;
     }
 
     public boolean isEmptyToken(Coordinate coordinate) {

@@ -3,7 +3,6 @@ package connect4.models;
 import connect4.types.PlayerType;
 import connect4.types.Token;
 import connect4.types.Error;
-import utils.Coordinate;
 
 
 public class Player {
@@ -22,8 +21,8 @@ public class Player {
 		return this.type;
 	}
 
-	void put(Coordinate coordinate) {
-		this.board.put(coordinate, this.token);
+	void put(Column column) {
+		this.board.putToken(column, this.token);
 	};
 
 	Token getToken() {

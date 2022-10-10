@@ -1,10 +1,6 @@
-package utils;
-
-import java.util.Random;
+package connect4.models;
 
 public class Coordinate {
-
-	public static final int DIMENSION = 3;
 
 	protected int row;
 	protected int column;
@@ -26,14 +22,8 @@ public class Coordinate {
 	}
 
 	public boolean isValid() {
-		return this.row >= 0 && this.row < Coordinate.DIMENSION && this.column >= 0
-				&& this.column < Coordinate.DIMENSION;
-	}
-
-	public void random() {
-		Random random = new Random(System.currentTimeMillis());
-		this.row = random.nextInt(Coordinate.DIMENSION);
-		this.column = random.nextInt(Coordinate.DIMENSION);
+		return this.row >= 0 && this.row < Board.NUM_ROWS && this.column >= 0
+				&& this.column < Board.NUM_COLUMNS;
 	}
 
 	@Override
