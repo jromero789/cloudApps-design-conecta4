@@ -2,6 +2,8 @@ import utils.Console;
 
 enum Message {
 	TITLE("--- CONNECT4 ---"),
+	HORIZONTAL_LINE("---------------"),
+	VERTICAL_LINE(" | "),
 	ENTER_COLUMN_TO_PUT("Enter a column to put a token:"),
 	IS_DRAW("Draw"),
     PLAYER_WIN("#player player: You win!!! :-)"), 

@@ -1,4 +1,7 @@
 import java.util.Map;
+
+import utils.Console;
+
 import java.util.HashMap;
 
 public class Board {
@@ -52,7 +55,7 @@ public class Board {
     }
 
     private boolean isLine(Color color, Direction direction, int displacement){
-        
+
         int i=0;
         while(i<4 &&
             cells.containsKey(this.lastCell.calcReferencedCell(direction, displacement + i)) && 
@@ -73,7 +76,22 @@ public class Board {
     }
 
     void write() {
-        // TODO: Show board
+        
+        Message.HORIZONTAL_LINE.writeln();
+		for (int row = NUM_ROWS - 1; row >= 0; row--) {
+			Message.VERTICAL_LINE.write();
+			for (int column = 0; column < NUM_COLUMNS; column++) {
+                Cell cell = new Cell(row, column);
+                if(cells.containsKey(cell)){
+                    Console.getInstance().write(cells.get(cell).getColorChar());
+                }else{
+                    Console.getInstance().write(" ");
+                }
+
+				Message.VERTICAL_LINE.write();
+			}
+			Console.getInstance().writeln();
+		}
     }
 
     
