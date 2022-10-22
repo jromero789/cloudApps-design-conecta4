@@ -1,62 +1,80 @@
 import java.util.Map;
-import java.util.ArrayList;
 import java.util.HashMap;
-import utils.Coordinate;
 
 public class Board {
     
     public static final int NUM_ROWS = 6;
     public static final int NUM_COLUMNS = 7;
 
-    private Map<Color, ArrayList<Coordinate>> coordinates;
-    private Map<Integer, Integer> columnNumTokens;
+    private Map<Cell, Color> cells;
+    private Cell lastCell;
 
     Board() {
-		this.coordinates = new HashMap<>();
-        this.columnNumTokens = new HashMap<>();
+		this.cells = new HashMap<>();
+        this.lastCell = null;
 		this.reset();
 	}
 
     void reset() {
-        coordinates = new HashMap<>();
-        coordinates.put(Color.RED, new ArrayList<>());
-        coordinates.put(Color.YELLOW, new ArrayList<>());
-       
-        columnNumTokens = new HashMap<>();
-        for(int column = 0; column < NUM_COLUMNS; column++){
-            columnNumTokens.put(column, 0);
-        }
+        this.cells = new HashMap<>();
+        this.lastCell = null;
     }
 
     void putToken(int column, Color color){
 
-        columnNumTokens.merge(column, 1, Integer::sum);
-       
-        Coordinate coordinate = new Coordinate(columnNumTokens.get(column), column);
-        coordinates.computeIfAbsent(color, k -> new ArrayList<>()).add(coordinate);
+        int row = 0;
+        while (row < NUM_ROWS && 
+        this.cells.containsKey(new Cell(row, column)))
+            row++;
+        
+        if(!this.cells.containsKey(new Cell(row, column))){
+            
+            this.lastCell = new Cell(row, column);
+            this.cells.put(lastCell, color);
+        }
     }
 
     boolean isColumnFull(int column){
-        return (this.columnNumTokens.get(column) == NUM_ROWS - 1);
+        return this.cells.containsKey(new Cell(NUM_ROWS - 1, column));
     }
 
     boolean isConnect4(Color color) {
         
-        // TODO: Check connect4 for that color
+        for(Direction direction : Direction.values()){
+            for(int displacement = -3; displacement <= 0; displacement++){
+
+                if(isLine(color, direction, displacement)){
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
+    private boolean isLine(Color color, Direction direction, int displacement){
+        
+        int i=0;
+        while(i<4 &&
+            cells.containsKey(this.lastCell.calcReferencedCell(direction, displacement + i)) && 
+            cells.get(this.lastCell.calcReferencedCell(direction, displacement + i)).equals(color))
+            i++;
+
+        return i==4;
+    }
+   
+
     boolean isDraw() {
         
-        for(Integer maxRow : this.columnNumTokens.values()){
-            if (maxRow < NUM_ROWS - 1){
-                return false;
-            }
-        }
-        return true;
+        int column = 0;
+        while (column < NUM_COLUMNS && isColumnFull(column))
+            column++;
+
+        return column == NUM_COLUMNS;
     }
 
     void write() {
         // TODO: Show board
     }
+
+    
 }
