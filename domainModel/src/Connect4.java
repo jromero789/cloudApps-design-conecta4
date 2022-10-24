@@ -57,4 +57,4 @@ public class Connect4 {
         new Connect4().play();
     }
 }
-0
+
