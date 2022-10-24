@@ -1,7 +1,5 @@
 import java.util.Map;
-
 import utils.Console;
-
 import java.util.HashMap;
 
 public class Board {
