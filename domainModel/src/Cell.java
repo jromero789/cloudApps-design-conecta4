@@ -8,6 +8,12 @@ public class Cell {
         this.column = column;
     }
 
+    public void moveCell(Direction direction, int displacement){
+        
+        this.row += direction.directionRow * displacement;
+        this.column += direction.directionColumn * displacement;
+    }
+
     public Cell calcReferencedCell(Direction direction, int displacement){
 
         int referenceRow = this.row + direction.directionRow * displacement;

@@ -26,14 +26,15 @@ public class Board {
     void putToken(int column, Color color){
 
         int row = 0;
-        while (row < NUM_ROWS && 
-        this.cells.containsKey(new Cell(row, column)))
+        Cell cell = new Cell(row, column);
+        while (row < NUM_ROWS && this.cells.containsKey(cell)){
+            cell.moveCell(Direction.VERTICAL_UP, 1);
             row++;
+        }
         
-        if(!this.cells.containsKey(new Cell(row, column))){
-            
-            this.lastCell = new Cell(row, column);
-            this.cells.put(lastCell, color);
+        if(!this.cells.containsKey(cell)){
+            this.lastCell = cell;
+            this.cells.put(this.lastCell, color);
         }
     }
 
@@ -67,7 +68,7 @@ public class Board {
         
         Cell referenceCell = this.lastCell.calcReferencedCell(direction, displacement);
 
-        return cells.containsKey(referenceCell) && cells.get(referenceCell).equals(color);
+        return this.cells.containsKey(referenceCell) && this.cells.get(referenceCell).equals(color);
     }
    
     boolean isDraw() {
@@ -86,8 +87,8 @@ public class Board {
 			Message.VERTICAL_LINE.write();
 			for (int column = 0; column < NUM_COLUMNS; column++) {
                 Cell cell = new Cell(row, column);
-                if(cells.containsKey(cell)){
-                    Console.getInstance().write(cells.get(cell).getColorChar());
+                if(this.cells.containsKey(cell)){
+                    Console.getInstance().write(this.cells.get(cell).getColorChar());
                 }else{
                     Console.getInstance().write(" ");
                 }
@@ -97,6 +98,5 @@ public class Board {
 			Console.getInstance().writeln();
 		}
     }
-
     
 }
