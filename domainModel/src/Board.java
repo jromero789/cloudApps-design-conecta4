@@ -57,15 +57,19 @@ public class Board {
     private boolean isLine(Color color, Direction direction, int displacement){
 
         int i=0;
-        while(i<4 &&
-            cells.containsKey(this.lastCell.calcReferencedCell(direction, displacement + i)) && 
-            cells.get(this.lastCell.calcReferencedCell(direction, displacement + i)).equals(color))
+        while(i<4 && isCellWithSameColor(color, direction, displacement + i))
             i++;
 
         return i==4;
     }
-   
 
+    private boolean isCellWithSameColor(Color color, Direction direction, int displacement){
+        
+        Cell referenceCell = this.lastCell.calcReferencedCell(direction, displacement);
+
+        return cells.containsKey(referenceCell) && cells.get(referenceCell).equals(color);
+    }
+   
     boolean isDraw() {
         
         int column = 0;
