@@ -1,28 +1,19 @@
 package views.graphics;
 
-import controllers.Logic;
+import controllers.PlayController;
+import controllers.ResumeController;
+import controllers.StartController;
 import views.View;
 
-public class GraphicsView extends View {
+public class GraphicsView implements View {
 
-	public GraphicsView(Logic logic) {
-        super(logic);
+    public void visit(StartController startController) {
     }
 
-	@Override
-	public void start() {
-		// TODO: Implement
-	}
+    public void visit(PlayController playController) {
+    }
 
-	@Override
-	public void play() {
-		// TODO: Implement
-	}
-
-	@Override
-	public boolean resume() {
-		// TODO: Implement
-		return false;
-	}
-    
+    public boolean visit(ResumeController resumeController) {
+        return true;
+    }
 }

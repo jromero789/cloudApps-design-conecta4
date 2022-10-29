@@ -1,54 +1,30 @@
 package controllers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import models.Game;
-import types.Color;
-import types.Error;
-import utils.models.Cell;
+import models.State;
+import models.StateValue;
 
 public class Logic {
     
     private Game game;
-    private StartController startController;
-    private PlayController playController;
-    private ResumeController resumeController;
+    private State state;
+    private Map<StateValue, Controller> controllers;
 
-    public Logic(Game game) {
-        this.game = game;
-        this.startController = new StartController(this.game);
-        this.playController = new PlayController(this.game);
-        this.resumeController = new ResumeController(this.game);
+    public Logic() {
+        this.state = new State();
+        this.game = new Game();
+        this.controllers = new HashMap<>();
+        this.controllers.put(StateValue.INITIAL, new StartController(this.game, this.state));
+        this.controllers.put(StateValue.IN_GAME, new PlayController(this.game, this.state));
+        this.controllers.put(StateValue.RESUME, new ResumeController(this.game, this.state));
+        this.controllers.put(StateValue.EXIT, null);
     }
 
-    public Color getColor(Cell cell) {
-        return this.startController.getColor(cell);
-    }
-
-    public boolean isConnect4() {
-        return this.playController.isConnect4();
-    }
-
-    public boolean isDraw() {
-        return this.playController.isDraw();
-    }
-
-    public void next() {
-        this.playController.next();
-    }
-
-    public Color getActiveColor() {
-        return this.playController.getActiveColor();
-    }
-
-    public void putToken(int column) {
-        this.playController.putToken(column);
-    }
-
-    public Error getPutTokenError(int column) {
-        return this.playController.getPutTokenError(column);
-    }
-
-    public void reset() {
-        this.resumeController.reset();
+    public Controller getController() {
+        return this.controllers.get(this.state.getValueState());
     }
     
 }

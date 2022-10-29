@@ -1,11 +1,10 @@
-import controllers.Logic;
 import views.graphics.GraphicsView;
 
 public class GraphicsConnect4 extends Connect4{
     
     @Override
-	protected GraphicsView createView(Logic logic) {
-		return new GraphicsView(logic);
+	protected GraphicsView createView() {
+		return new GraphicsView();
 	}
 
 	public static void main(String[] args) {

@@ -1,22 +1,18 @@
 package views.console;
 
-import controllers.Logic;
+import controllers.PlayController;
 import views.Message;
-import views.WithLogicView;
 
-public class PlayView extends WithLogicView {
+public class PlayView {
 
-    PlayView(Logic logic) {
-        super(logic);
-    }
-
-    void interact() {
+    void interact(PlayController playController) {
         do {
-            new PlayerView(this.logic).interact();
-            this.logic.next();
-            new BoardView().write(this.logic);
-        } while (!this.logic.isConnect4() && !this.logic.isDraw());
-        Message.PLAYER_WIN.writeln(this.logic.getActiveColor().getColorChar());
+            new PlayerView(playController).interact();
+            playController.next();
+            new BoardView().write(playController);
+        } while (!playController.isConnect4() && !playController.isDraw());
+        new MessageView().writeln(Message.PLAYER_WIN, playController.getActiveColor().getColorChar());
+        playController.nextState();
     }
     
 }

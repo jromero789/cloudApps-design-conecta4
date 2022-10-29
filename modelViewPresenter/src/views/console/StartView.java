@@ -1,17 +1,14 @@
 package views.console;
 
 import controllers.Logic;
+import controllers.StartController;
 import views.Message;
-import views.WithLogicView;
 
-public class StartView extends WithLogicView{
+public class StartView{
 
-    StartView(Logic logic) {
-        super(logic);
-    }
-
-    void interact() {
-        Message.TITLE.writeln();
-        new BoardView().write(this.logic);
+    void interact(StartController startController) {
+        new MessageView().writeln(Message.TITLE);
+        new BoardView().write(startController);
+        startController.nextState();
     }
 }

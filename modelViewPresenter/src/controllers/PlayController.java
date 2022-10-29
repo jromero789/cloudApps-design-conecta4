@@ -1,13 +1,14 @@
 package controllers;
 
 import models.Game;
+import models.State;
 import types.Color;
 import types.Error;
 
-public class PlayController  extends Controller {
+public class PlayController extends Controller {
 
-    public PlayController(Game game) {
-        super(game);
+    public PlayController(Game game, State state) {
+        super(game, state);
     }
 
     public boolean isConnect4() {
@@ -34,4 +35,8 @@ public class PlayController  extends Controller {
         return this.game.getPutTokenError(column);
     }
     
+    @Override
+    public void accept(ControllersVisitor controllersVisitor) {
+        controllersVisitor.visit(this);
+    }
 }

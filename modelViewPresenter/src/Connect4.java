@@ -1,5 +1,5 @@
+import controllers.Controller;
 import controllers.Logic;
-import models.Game;
 import views.View;
 
 public abstract class Connect4 {
@@ -8,17 +8,19 @@ public abstract class Connect4 {
 	protected Logic logic;
 
 	protected Connect4(){
-		this.logic = new Logic(new Game());
-        this.view = this.createView(this.logic);
+		this.logic = new Logic();
+        this.view = this.createView();
 	}
 
-	protected abstract View createView(Logic logic);
+	protected abstract View createView();
 
 	protected void play(){
-		do{
-			this.view.start();
-			this.view.play();
-		}while(this.view.resume());
+		Controller controller;
+		do {
+            controller = logic.getController();
+            if (controller != null)
+                controller.accept(this.view);
+        } while (controller != null);
 	}
 }
 
