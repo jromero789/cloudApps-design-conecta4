@@ -1,6 +1,7 @@
 package models;
 import types.Color;
 import types.Error;
+import utils.models.ClosedInterval;
 
 public class Player {
     
@@ -20,9 +21,13 @@ public class Player {
 
 	Error getPutTokenError(int column) {
 		Error error = Error.NULL;
+		ClosedInterval closedInterval = new ClosedInterval(0, Board.NUM_COLUMNS);
         if (this.board.isColumnFull(column)) {
 			error = Error.COLUMN_FULL;
+		}else if(!closedInterval.isIncluded(column)){
+			error = Error.COLUMN_INVALID;
 		}
+
 		return error;
     }
 
