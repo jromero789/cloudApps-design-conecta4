@@ -1,6 +1,5 @@
 package views.console;
 
-import controllers.Logic;
 import controllers.StartController;
 import views.Message;
 
