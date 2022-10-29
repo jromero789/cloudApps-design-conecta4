@@ -1,6 +1,8 @@
-package views;
+package views.console;
 
 import models.Game;
+import views.Message;
+import views.WithGameView;
 
 public class PlayView extends WithGameView {
 

@@ -1,9 +1,10 @@
-package views;
+package views.console;
 
 import models.Board;
 import models.Game;
 import utils.models.Cell;
 import utils.views.Console;
+import views.Message;
 
 public class BoardView {
     

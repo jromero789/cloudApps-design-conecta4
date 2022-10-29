@@ -1,4 +1,4 @@
-package views;
+package views.console;
 
 import utils.views.Console;
 

@@ -1,26 +1,23 @@
-
 import models.Game;
 import views.View;
 
-public class Connect4 {
+public abstract class Connect4 {
 
     private Game game;
 	private View view;
 
-	Connect4(){
+	protected Connect4(){
 		this.game = new Game();
-		this.view = new View(this.game);
+		this.view = this.createView(this.game);
 	}
 
-	private void play(){
+	protected abstract View createView(Game game);
+
+	protected void play(){
 		do{
 			this.view.start();
 			this.view.play();
 		}while(this.view.resume());
 	}
-
-	public static void main(String[] args) {
-        new Connect4().play();
-    }
 }
 

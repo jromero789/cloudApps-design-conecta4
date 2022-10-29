@@ -1,6 +1,9 @@
-package views;
+package views.console;
 
 import types.Error;
+import views.ErrorView;
+import views.Message;
+import views.WithGameView;
 import models.Game;
 
 public class PlayerView extends WithGameView{

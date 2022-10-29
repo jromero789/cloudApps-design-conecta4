@@ -6,7 +6,7 @@ public class WithGameView {
     
     protected Game game;
 
-    WithGameView(Game game){
+    protected WithGameView(Game game){
         this.game = game;
     }
 }

@@ -1,7 +1,9 @@
-package views;
+package views.console;
 
 import models.Game;
 import utils.views.YesNoDialog;
+import views.Message;
+import views.WithGameView;
 
 public class ResumeView extends WithGameView{
     

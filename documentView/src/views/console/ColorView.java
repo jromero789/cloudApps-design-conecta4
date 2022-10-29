@@ -1,4 +1,4 @@
-package views;
+package views.console;
 
 import types.Color;
 import utils.views.Console;

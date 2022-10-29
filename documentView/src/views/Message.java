@@ -17,15 +17,15 @@ public enum Message {
 		this.message = message;
 	}
 
-	void write() {
+	public void write() {
 		Console.getInstance().write(this.message);
 	}
 
-	void writeln() {
+	public void writeln() {
 		Console.getInstance().writeln(this.message);
 	}
 
-	void writeln(String player) {
+	public void writeln(String player) {
 		assert this == Message.PLAYER_WIN;
 		
 		Console.getInstance().writeln(this.message.replaceAll("#player", "" + player));

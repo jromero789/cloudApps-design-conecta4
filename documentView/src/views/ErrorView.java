@@ -12,7 +12,7 @@ public class ErrorView {
         Error.NULL, ""
     );
 
-    void writeln(Error error) {
+    public void writeln(Error error) {
         if (!error.isNull()) {
             Console.getInstance().writeln(ErrorView.errorMessage.get(error));
    
