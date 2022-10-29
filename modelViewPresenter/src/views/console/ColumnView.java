@@ -11,7 +11,6 @@ public class ColumnView {
 
         Console console = Console.getInstance();
         console.writeln(message);
-        int column = console.readInt(COLUMN) - 1;
-        return column;
+        return console.readInt(COLUMN) - 1;
     }
 }

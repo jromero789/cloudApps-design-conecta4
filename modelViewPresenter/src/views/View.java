@@ -1,13 +1,10 @@
 package views;
 
 import controllers.Logic;
-import controllers.PlayController;
-import controllers.ResumeController;
-import controllers.StartController;
 
 public abstract class View extends WithLogicView {
 
-    public View(Logic logic) {
+    protected View(Logic logic) {
         super(logic);
     }
 
