@@ -1,8 +1,6 @@
 package views.console;
 
-import controllers.PlayController;
-import controllers.ResumeController;
-import controllers.StartController;
+import controllers.Logic;
 import views.View;
 
 public class ConsoleView extends View {
@@ -11,11 +9,11 @@ public class ConsoleView extends View {
     private PlayView playView;
     private ResumeView resumeView;
 
-    public ConsoleView(StartController startController, PlayController playController, ResumeController resumeController) {
-        super(startController,playController,resumeController);
-        this.startView = new StartView(this.startController);
-        this.playView = new PlayView(this.playController);
-        this.resumeView = new ResumeView(this.resumeController);
+    public ConsoleView(Logic logic) {
+        super(logic);
+        this.startView = new StartView(logic);
+        this.playView = new PlayView(logic);
+        this.resumeView = new ResumeView(logic);
     }
 
     @Override

@@ -1,19 +1,14 @@
 package views;
 
+import controllers.Logic;
 import controllers.PlayController;
 import controllers.ResumeController;
 import controllers.StartController;
 
-public abstract class View {
+public abstract class View extends WithLogicView {
 
-    protected StartController startController;
-    protected PlayController playController;
-    protected ResumeController resumeController;
-
-    protected View(StartController startController, PlayController playController, ResumeController resumeController) {
-        this.startController = startController;
-        this.playController = playController;
-        this.resumeController = resumeController;
+    public View(Logic logic) {
+        super(logic);
     }
 
     public abstract void start();

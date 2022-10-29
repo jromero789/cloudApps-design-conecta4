@@ -1,16 +1,13 @@
 package views.graphics;
 
-import controllers.PlayController;
-import controllers.ResumeController;
-import controllers.StartController;
+import controllers.Logic;
 import views.View;
 
-public class GraphicsView  extends View {
+public class GraphicsView extends View {
 
-	public GraphicsView(StartController startController, PlayController playController, ResumeController resumeController) {
-		super(startController, playController, resumeController);
-		// TODO: Implement
-	}
+	public GraphicsView(Logic logic) {
+        super(logic);
+    }
 
 	@Override
 	public void start() {

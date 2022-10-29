@@ -1,22 +1,21 @@
 package views.console;
 
-import controllers.ResumeController;
+import controllers.Logic;
 import utils.views.YesNoDialog;
 import views.Message;
+import views.WithLogicView;
 
-public class ResumeView {
+public class ResumeView  extends WithLogicView {
 
-    private ResumeController resumeController;
-
-    ResumeView(ResumeController resumeController) {
-        this.resumeController = resumeController;
+    ResumeView(Logic logic) {
+        super(logic);
     }
 
     boolean interact() {
         YesNoDialog isResumed = new YesNoDialog();
         isResumed.read(Message.RESUME.toString());
         if (isResumed.isAffirmative()) {
-            this.resumeController.reset();
+            this.logic.reset();
         }
         return isResumed.isAffirmative();
     }

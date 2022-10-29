@@ -3,16 +3,15 @@ package views.console;
 import types.Error;
 import views.ErrorView;
 import views.Message;
-import controllers.PlayController;
+import views.WithLogicView;
+import controllers.Logic;
 
-public class PlayerView{
-    
-    private PlayController playController;
+public class PlayerView extends WithLogicView {
 
-    PlayerView(PlayController playController) {
-        this.playController = playController;
+    PlayerView(Logic logic) {
+        super(logic);
     }
-
+    
     void interact() {
         this.putToken();
     }
@@ -24,7 +23,7 @@ public class PlayerView{
             column = this.getColumn(Message.ENTER_COLUMN_TO_PUT);
             error = this.getPutTokenError(column);
         } while (!error.isNull());
-        this.playController.putToken(column);
+        this.logic.putToken(column);
     }
 
     int getColumn(Message message) {
@@ -34,7 +33,7 @@ public class PlayerView{
     }
 
     private Error getPutTokenError(int column) {
-        Error error = this.playController.getPutTokenError(column);
+        Error error = this.logic.getPutTokenError(column);
         new ErrorView().writeln(error);
         return error;
     }
