@@ -1,8 +1,6 @@
 package views;
 
-import java.util.HashMap;
 import java.util.Map;
-
 import types.Error;
 import utils.views.Console;
 

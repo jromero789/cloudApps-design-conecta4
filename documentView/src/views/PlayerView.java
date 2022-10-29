@@ -30,8 +30,6 @@ public class PlayerView extends WithGameView{
     }
 
     private Error getPutTokenError(int column) {
-        // assert column != null;
-
         Error error = this.game.getPutTokenError(column);
         new ErrorView().writeln(error);
         return error;

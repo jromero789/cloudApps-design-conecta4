@@ -1,8 +1,6 @@
 package models;
 import types.Color;
 import types.Error;
-import utils.views.BoundedIntDialog;
-import views.Message;
 
 public class Player {
     

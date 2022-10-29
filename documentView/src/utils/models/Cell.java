@@ -1,8 +1,6 @@
 package utils.models;
 public class Cell {
     
-    public static final String COLUMN = "Column: ";
-    
     private int row;
     private int column;
     
