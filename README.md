@@ -16,14 +16,14 @@
 1. Docs
 Contiene modelo del dominio en diagrama de clases
 
-2. domainModel. Iteraciones:
+2. domainModel. Iteraciones realizadas:
 - Basic
 
-3. documentView
+3. documentView. Iteraciones realizadas:
 - Basic
 - WithFactoryMehtod
 
-4. modelViewPresenter
+4. modelViewPresenter. Iteraciones realizadas:
 - Basic
 - WithFacade
 - WithDoubleDispatching
