@@ -27,7 +27,7 @@ public class Board {
     Board cloneBoard(){
         Map<Cell, Color> cellsCopy = new HashMap<>();
         for (Map.Entry<Cell, Color> entry : this.cells.entrySet()) {
-            Cell cell = entry.getKey();
+            Cell cell = entry.getKey().cloneCell();
             Color color = entry.getValue();
             
             cellsCopy.put(cell, color);
@@ -90,7 +90,7 @@ public class Board {
         if (this.lastCell == null){
             return false;
         }
-        
+
         Cell referenceCell = this.lastCell.calcReferencedCell(direction, displacement);
 
         return this.cells.containsKey(referenceCell) && this.cells.get(referenceCell).equals(color);
