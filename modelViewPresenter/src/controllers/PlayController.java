@@ -1,8 +1,6 @@
 package controllers;
 
-import models.Game;
 import models.Session;
-import models.State;
 import types.Color;
 import types.Error;
 

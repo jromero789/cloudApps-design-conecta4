@@ -1,5 +1,4 @@
 import controllers.AcceptorController;
-import controllers.Controller;
 import controllers.Logic;
 import views.View;
 
