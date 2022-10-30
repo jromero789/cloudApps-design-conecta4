@@ -19,6 +19,26 @@ public class Board {
 		this.reset();
 	}
 
+    private Board(Map<Cell, Color> cells, Cell lastCell) {
+		this.cells = cells;
+        this.lastCell = lastCell;
+	}
+
+    Board cloneBoard(){
+        Map<Cell, Color> cellsCopy = new HashMap<>();
+        for (Map.Entry<Cell, Color> entry : this.cells.entrySet()) {
+            Cell cell = entry.getKey();
+            Color color = entry.getValue();
+            
+            cellsCopy.put(cell, color);
+        }
+        Cell lastCellCopy = null;
+        if(this.lastCell != null){
+            lastCellCopy = this.lastCell.cloneCell();
+        }
+        return new Board(cellsCopy, lastCellCopy);
+    }
+
     void reset() {
         this.cells = new HashMap<>();
         this.lastCell = null;
@@ -66,6 +86,10 @@ public class Board {
     }
 
     private boolean isCellWithSameColor(Color color, Direction direction, int displacement){
+        
+        if (this.lastCell == null){
+            return false;
+        }
         
         Cell referenceCell = this.lastCell.calcReferencedCell(direction, displacement);
 

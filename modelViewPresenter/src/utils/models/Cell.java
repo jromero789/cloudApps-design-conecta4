@@ -1,5 +1,5 @@
 package utils.models;
-public class Cell {
+public class Cell implements Cloneable{
     
     private int row;
     private int column;
@@ -8,6 +8,10 @@ public class Cell {
     public Cell(int row, int column) {
         this.row = row;
         this.column = column;
+    }
+
+    public Cell cloneCell() {
+        return new Cell(this.row, this.column);
     }
 
     public void moveCell(Direction direction, int displacement){

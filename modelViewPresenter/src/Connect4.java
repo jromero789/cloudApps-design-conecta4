@@ -1,3 +1,4 @@
+import controllers.AcceptorController;
 import controllers.Controller;
 import controllers.Logic;
 import views.View;
@@ -15,12 +16,12 @@ public abstract class Connect4 {
 	protected abstract View createView();
 
 	protected void play(){
-		Controller controller;
-		do {
-            controller = logic.getController();
-            if (controller != null)
-                controller.accept(this.view);
-        } while (controller != null);
+		AcceptorController acceptorController;
+        do {
+            acceptorController = logic.getController();
+            if (acceptorController != null)
+                acceptorController.accept(this.view);
+        } while (acceptorController != null);
 	}
 }
 

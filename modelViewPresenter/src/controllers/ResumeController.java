@@ -1,17 +1,15 @@
 package controllers;
 
-import models.Game;
-import models.State;
+import models.Session;
 
-public class ResumeController extends Controller {
+public class ResumeController extends Controller implements AcceptorController {
 
-    public ResumeController(Game game, State state) {
-        super(game, state);
+    public ResumeController(Session session) {
+        super(session);
     }
 
     public void reset() {
-        this.game.reset();
-        this.state.reset();
+        this.session.reset();
     }
 
     @Override

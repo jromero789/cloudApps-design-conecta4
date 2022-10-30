@@ -19,6 +19,16 @@ public class Game {
         this.turn.reset();
     }
 
+    Memento createMemento() {
+        return new Memento(this.board, this.turn);
+    }
+
+    void setMemento(Memento memento) {
+        this.board = memento.getBoard();
+        this.turn = new Turn(this.board);
+        this.turn.setActivePlayer(memento.getActivePlayer());
+    }
+
 	public void next() {
         this.turn.next();
     }
@@ -27,7 +37,7 @@ public class Game {
         return this.turn.getActiveColor();
     }
 
-    public boolean isConect4() {
+    public boolean isConnect4() {
 		return this.board.isConnect4(this.turn.getActiveColor());
 	}
 	

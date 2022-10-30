@@ -1,28 +1,23 @@
 package controllers;
 
-import models.Game;
-import models.State;
+import models.Session;
 import utils.models.Cell;
 import types.Color;
 
 public abstract class Controller {
 
-    protected Game game;
-    protected State state;
+    protected Session session;
 
-    Controller(Game game, State state) {
-        this.game = game;
-        this.state = state;
+    Controller(Session session) {
+        this.session= session;
     }
 
     public void nextState() {
-        this.state.next();
+        this.session.nextState();
     }
 
     public Color getColor(Cell cell) {
-        return this.game.getColor(cell);
+        return this.session.getColor(cell);
     }
-
-    public abstract void accept(ControllersVisitor controllersVisitor);
-
+    
 }

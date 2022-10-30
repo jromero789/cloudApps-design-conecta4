@@ -8,7 +8,10 @@ public enum Message {
 	ENTER_COLUMN_TO_PUT("Enter a column to put a token:"),
 	IS_DRAW("Draw"),
     PLAYER_WIN("#player player: You win!!! :-)"), 
-	RESUME("Do you want to continue");
+	RESUME("Do you want to continue"),
+	ACTION_COMMAND("Do a action"),
+    UNDO_COMMAND("Undo previous action"),
+    REDO_COMMAND("Redo previous action");
 	
 
 	private String message;

@@ -34,6 +34,11 @@ public class Turn {
     Player getActivePlayer() {
         return this.players.get(this.activePlayer);
     }
+    
+    void setActivePlayer(int activePlayer) {
+        this.activePlayer = activePlayer;
+	}
+
 
     Color getActiveColor() {
 		return this.players.get(this.activePlayer).getColor();

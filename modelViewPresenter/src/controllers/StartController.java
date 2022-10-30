@@ -1,12 +1,11 @@
 package controllers;
 
-import models.Game;
-import models.State;
+import models.Session;
 
-public class StartController extends Controller{
+public class StartController extends Controller implements AcceptorController {
 
-    public StartController(Game game, State state) {
-        super(game, state);
+    public StartController(Session session) {
+        super(session);
     }
     
     @Override
