@@ -27,7 +27,7 @@ Contiene modelo del dominio en diagrama de clases
 - Basic
 - WithFacade
 - WithDoubleDispatching
-- WithCompsite
+- WithComposite
 
 
 ## Autoevaluación Diseño y calidad de software (6.5p)
