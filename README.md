@@ -1,6 +1,6 @@
 # cloudApps-design-conecta4
 
-Datos:
+## Datos:
 - Master: CloudApps
 - Asignatura: Diseño y calidad de software, Patrones y arquitectura software. 
 - Práctica Conecta4.
@@ -8,10 +8,10 @@ Datos:
 - Email: j.romero1.2016@alumnos.urjc.es
 - Fecha: 10/10/2022
 
-Github práctica:
+## Github práctica:
 - https://github.com/jromero789/cloudApps-design-conecta4
 
-Contenido:
+## Contenido:
 
 1. Docs
 Contiene modelo del dominio en diagrama de clases
