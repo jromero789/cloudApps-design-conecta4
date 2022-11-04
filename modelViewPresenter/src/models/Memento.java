@@ -6,12 +6,9 @@ public class Memento {
     private int activePlayer;
 
     Memento(Board board, Turn turn) {
-        try {
-            this.board = board.cloneBoard();
-            this.activePlayer = turn.getActiveColor().ordinal();
-        } catch (Exception e) {
-            assert false;
-        }
+        
+        this.board = board.cloneBoard();
+        this.activePlayer = turn.getActiveColor().ordinal();
     }
 
     Board getBoard() {
