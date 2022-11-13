@@ -1,7 +1,7 @@
 package com.connect4.types;
 
 public enum Color {
-    RESUME("R"),
+    RED("R"),
 	YELLOW("Y"),
     NULL(" ");
 
