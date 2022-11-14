@@ -73,7 +73,7 @@ public class BoardTest {
     }
 
     @Test
-    public void testGivenBoardColumnFullWhenPutTokenThenReturnColumnIsFull() {
+    public void testGivenBoardWhenColumnFullPutTokenThenReturnColumnIsFull() {
         Board board = this.boardBuilder.rows(
                 " Y     ",
                 " R     ",
