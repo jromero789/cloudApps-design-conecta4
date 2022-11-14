@@ -16,10 +16,10 @@ public class BoardBuilder {
     }
 
     public BoardBuilder rows(String... rows) {
-        assert rows.length == 7;
+        assert rows.length == 6;
         
         for (String row : rows) {
-            assert Pattern.matches("[RY ]{3}", row);
+            assert Pattern.matches("[RY ]{7}", row);
             this.rows.add(row);
         }
         return this;
@@ -28,7 +28,7 @@ public class BoardBuilder {
     public Board build() {
         Board board = new Board();
         if (!this.rows.isEmpty()) {
-            for (int i = this.rows.size() - 1; i == 0; i--) {
+            for (int i = this.rows.size() - 1; i >= 0; i--) {
                 String string = this.rows.get(i);
                 for (int j = 0; j < string.length(); j++) {
                     char colorChar = string.charAt(j);

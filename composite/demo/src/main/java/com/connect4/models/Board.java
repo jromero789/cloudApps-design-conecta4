@@ -64,6 +64,7 @@ public class Board {
     }
 
     boolean isConnect4(Color color) {
+        assert !color.isNull();
         
         for(Direction direction : Direction.values()){
             for(int displacement = -3; displacement <= 0; displacement++){
