@@ -43,6 +43,11 @@ public class TurnTest {
     public void testGivenTurnWhenNextThenNextTurn() {
         this.turn.next();
         assertThat(this.turn.getActiveColor(), is(Color.YELLOW));
+    }
+
+    @Test
+    public void testGivenTurnWhenNextThenNext2Turn() {
+        this.turn.next();
         this.turn.next();
         assertThat(this.turn.getActiveColor(), is(Color.RED));
     }

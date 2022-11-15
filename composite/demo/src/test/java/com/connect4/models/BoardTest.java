@@ -28,19 +28,19 @@ public class BoardTest {
         assertEmpty(board);
     }
 
-    @Test
-    public void testGivenExampleBoardWhenResetThenIsEmpty() {
-        Board board = getExamplBoard();
-        board.reset();
-        assertEmpty(board);
-    }
-
     private static void assertEmpty(Board board) {
         for (int i = 0; i < Board.NUM_ROWS; i++) {
             for (int j = 0; j < Board.NUM_COLUMNS; j++) {
                 assertThat(board.getColor(new Cell(i, j)), is(Color.NULL));
             }
         }
+    }
+
+    @Test
+    public void testGivenExampleBoardWhenResetThenIsEmpty() {
+        Board board = getExamplBoard();
+        board.reset();
+        assertEmpty(board);
     }
 
     // Put token
@@ -198,13 +198,12 @@ public class BoardTest {
     @Test
     public void testGivenFullBoardWhenIsFullDrawIsTrue() {
         Board board = this.boardBuilder.rows(
-                "RR YRRY",
+                "RRRYRRY",
                 "RRYYRRY",
                 "RRYYRRY",
                 "YYRRYYR",
                 "YYRRYYR",
                 "YYRRYYR").build();
-        board.putToken(2, Color.YELLOW);
         assertThat(board.isDraw(), is(true));
     }
 

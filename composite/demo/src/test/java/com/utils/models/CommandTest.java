@@ -5,24 +5,11 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class CommandTest {
+public abstract class CommandTest {
     
     private static final String TITLE = "Command Title";
 
-    public Command getCommand() {
-        return new Command(CommandTest.TITLE) {
-
-            @Override
-            public void execute() {
-            }
-
-            @Override
-            public boolean isActive() {
-                return true;
-            }
-            
-        };
-    }
+    public abstract Command getCommand();
 
     @Test
 	public void testGivenCommandWhenIsActiveThenTrue() {
