@@ -292,6 +292,10 @@ Experto en Información => la clase responsable es la que tiene la información
 
 - Test isIncluded, isNotIncludedLeft, isNotIncludedRight y isNotIncludedLeftAndRight
 
+## <em>**Versión 04**</em>
+
+- testIntervalMaxIsAboveMin
+
 ## <em>**Versión 99**</em>
 
 - Versión de referencia
