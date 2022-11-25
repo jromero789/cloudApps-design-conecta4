@@ -255,3 +255,6 @@ Experto en Información => la clase responsable es la que tiene la información
 
 ![claseCustomer](/out/docs/diagrams/src/movies21/movies.svg)
 
+## <em>**Versión 22**</em>
+
+- En customer, sustituir los iteradores de Rental por bucles for
