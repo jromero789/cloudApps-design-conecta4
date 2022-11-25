@@ -266,3 +266,7 @@ Experto en Información => la clase responsable es la que tiene la información
 ## <em>**Versión 24**</em>
 
 - Crear estructura para la generación del Statement
+
+## <em>**Versión 25**</em>
+
+- Formatear tests y crear valores por defecto para customerName y MovieName
