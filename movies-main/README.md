@@ -284,6 +284,10 @@ Experto en Información => la clase responsable es la que tiene la información
 
 - Test isIncluded devueve true
 
+## <em>**Versión 01**</em>
+
+- Test isIncluded y isNotIncludedLeft
+
 ## <em>**Versión 99**</em>
 
 - Versión de referencia
