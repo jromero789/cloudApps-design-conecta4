@@ -262,3 +262,7 @@ Experto en Información => la clase responsable es la que tiene la información
 ## <em>**Versión 23**</em>
 
 - Rental pregunta a Movie por el title
+
+## <em>**Versión 24**</em>
+
+- Crear estructura para la generación del Statement

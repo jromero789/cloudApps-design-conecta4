@@ -23,13 +23,21 @@ public class Customer {
 	}
 
 	public String statement() {
-		String result = "Rental Record for " + this.getName() + "\n";
+
+		final String TITLE = "Rental Record for %s\n";
+		final String RENT_ITEM = "\t%s\t%s\n";
+		final String FOOTER_CHARGE = "Amount owed is %s\n";
+		final String FOOTER_POINTS = "You earned %s frequent renter points";
+
+		StringBuilder bld = new StringBuilder();
+		bld.append(String.format(TITLE, this.getName()));
 		for (Rental rental : rentals) {
-			result += "\t" + rental.getTitle() + "\t" + String.valueOf(rental.getCharge()) + "\n";
+			bld.append(String.format(RENT_ITEM, rental.getTitle(), rental.getCharge()));
 		}
-		result += "Amount owed is " + String.valueOf(this.getTotalCharge()) + "\n";
-		result += "You earned " + String.valueOf(this.getTotalFrequentRenterPoints()) + " frequent renter points";
-		return result;
+		bld.append(String.format(FOOTER_CHARGE, this.getTotalCharge()));
+		bld.append(String.format(FOOTER_POINTS, this.getTotalFrequentRenterPoints()));
+		
+		return bld.toString();
 	}
 
 	private double getTotalCharge() {
