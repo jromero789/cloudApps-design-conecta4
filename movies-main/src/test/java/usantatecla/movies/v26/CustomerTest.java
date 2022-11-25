@@ -22,11 +22,7 @@ public class CustomerTest {
 
 	@Test
 	public void regularRental1DayTest() {
-		Movie movie = new MovieBuilder().regular().build();
-		Rental rental = new RentalBuilder().movie(movie).daysRented(1).build();
-		Customer customer = new CustomerBuilder().rental(rental).build();
-
-		String statement = customer.statement();
+		String statement = statementRegularRental(1);
 
 		String result = new StatementBuilder()
 				.movie(2)
@@ -36,14 +32,18 @@ public class CustomerTest {
 
 		assertEquals(result, statement);
 	}
+
+	private String statementRegularRental(int daysRented) {
+		Movie movie = new MovieBuilder().regular().build();
+		Rental rental = new RentalBuilder().movie(movie).daysRented(daysRented).build();
+		Customer customer = new CustomerBuilder().rental(rental).build();
+
+		return customer.statement();
+	}
 	
 	@Test
 	public void regularRental2DayTest() {
-		Movie movie = new MovieBuilder().regular().build();
-		Rental rental = new RentalBuilder().movie(movie).daysRented(2).build();
-		Customer customer = new CustomerBuilder().rental(rental).build();
-
-		String statement = customer.statement();
+		String statement = statementRegularRental(2);
 
 		String result = new StatementBuilder()
 				.movie(2)
@@ -56,11 +56,7 @@ public class CustomerTest {
 
 	@Test
 	public void regularRental3DayTest() {
-		Movie movie = new MovieBuilder().regular().build();
-		Rental rental = new RentalBuilder().movie(movie).daysRented(3).build();
-		Customer customer = new CustomerBuilder().rental(rental).build();
-
-		String statement = customer.statement();
+		String statement = statementRegularRental(3);
 
 		String result = new StatementBuilder()
 				.movie(3.5)
@@ -73,11 +69,7 @@ public class CustomerTest {
 	
 	@Test
 	public void newReleaseRental1DayTest() {
-		Movie movie = new MovieBuilder().newRelease().build();
-		Rental rental = new RentalBuilder().movie(movie).daysRented(1).build();
-		Customer customer = new CustomerBuilder().rental(rental).build();
-
-		String statement = customer.statement();
+		String statement = statementNewRelease(1);
 
 		String result = new StatementBuilder()
 				.movie(3)
@@ -87,14 +79,18 @@ public class CustomerTest {
 
 		assertEquals(result, statement);
 	}
+
+	private String statementNewRelease(int daysRented) {
+		Movie movie = new MovieBuilder().newRelease().build();
+		Rental rental = new RentalBuilder().movie(movie).daysRented(daysRented).build();
+		Customer customer = new CustomerBuilder().rental(rental).build();
+
+		return customer.statement();
+	}
 	
 	@Test
 	public void newReleaseRental2DayTest() {
-		Movie movie = new MovieBuilder().newRelease().build();
-		Rental rental = new RentalBuilder().movie(movie).daysRented(2).build();
-		Customer customer = new CustomerBuilder().rental(rental).build();
-
-		String statement = customer.statement();
+		String statement = statementNewRelease(2);
 
 		String result = new StatementBuilder()
 				.movie(3)
@@ -107,11 +103,7 @@ public class CustomerTest {
 	
 	@Test
 	public void newReleaseRental3DayTest() {
-		Movie movie = new MovieBuilder().newRelease().build();
-		Rental rental = new RentalBuilder().movie(movie).daysRented(3).build();
-		Customer customer = new CustomerBuilder().rental(rental).build();
-
-		String statement = customer.statement();
+		String statement = statementNewRelease(3);
 
 		String result = new StatementBuilder()
 				.movie(3)
@@ -124,11 +116,7 @@ public class CustomerTest {
 	
 	@Test
 	public void childrensRental1DayTest() {
-		Movie movie = new MovieBuilder().childrens().build();
-		Rental rental = new RentalBuilder().movie(movie).daysRented(1).build();
-		Customer customer = new CustomerBuilder().rental(rental).build();
-
-		String statement = customer.statement();
+		String statement = statementChildrens(1);
 
 		String result = new StatementBuilder()
 				.movie(1.5)
@@ -138,14 +126,18 @@ public class CustomerTest {
 
 		assertEquals(result, statement);
 	}
+
+	private String statementChildrens(int daysRented) {
+		Movie movie = new MovieBuilder().childrens().build();
+		Rental rental = new RentalBuilder().movie(movie).daysRented(daysRented).build();
+		Customer customer = new CustomerBuilder().rental(rental).build();
+
+		return customer.statement();
+	}
 	
 	@Test
 	public void childrensRental3DayTest() {
-		Movie movie = new MovieBuilder().childrens().build();
-		Rental rental = new RentalBuilder().movie(movie).daysRented(3).build();
-		Customer customer = new CustomerBuilder().rental(rental).build();
-
-		String statement = customer.statement();
+		String statement = statementChildrens(3);
 
 		String result = new StatementBuilder()
 				.movie(1.5)
@@ -158,11 +150,7 @@ public class CustomerTest {
 	
 	@Test
 	public void childrensRental4DayTest() {
-		Movie movie = new MovieBuilder().childrens().build();
-		Rental rental = new RentalBuilder().movie(movie).daysRented(4).build();
-		Customer customer = new CustomerBuilder().rental(rental).build();
-
-		String statement = customer.statement();
+		String statement = statementChildrens(4);
 
 		String result = new StatementBuilder()
 				.movie(6)

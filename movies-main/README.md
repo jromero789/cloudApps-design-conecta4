@@ -269,4 +269,8 @@ Experto en Información => la clase responsable es la que tiene la información
 
 ## <em>**Versión 25**</em>
 
-- Formatear tests y crear valores por defecto para customerName y MovieName
+- Formatear CustomerTest y crear valores por defecto para customerName y MovieName
+
+## <em>**Versión 26**</em>
+
+- Extraer metodos comunes en los CustomerTest
