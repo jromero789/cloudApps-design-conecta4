@@ -1,4 +1,4 @@
-package usantatecla.intervals.v02;
+package usantatecla.intervals.v03;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -24,6 +24,16 @@ public class IntervalTest {
 	@Test
 	public void testIsNotIncludedLeft() {
     	assertFalse(interval.isIncluded(new Interval(0,2)));
+	}
+
+	@Test
+	public void testIsNotIncludedRight() {
+    	assertFalse(interval.isIncluded(new Interval(-5,1)));
+	}
+
+	@Test
+	public void testIsNotIncludedLeftAndRigth() {
+    	assertFalse(interval.isIncluded(new Interval(0,1)));
 	}
 
 }

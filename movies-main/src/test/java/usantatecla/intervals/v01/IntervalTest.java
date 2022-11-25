@@ -12,12 +12,12 @@ public class IntervalTest {
 	
 	@Before 
 	public void before() {
-		interval = new Interval(-1,1);
+		interval = new Interval(-2,2);
 	}
 
 	@Test
 	public void testIsIncluded() {
-    	assertTrue(interval.isIncluded(new Interval(-2,2)));
+    	assertTrue(interval.isIncluded(new Interval(-5,3)));
 	}
 
 }
