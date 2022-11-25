@@ -1,4 +1,4 @@
-package usantatecla.intervals;
+package usantatecla.intervals.v99;
 
 public class Interval {
 

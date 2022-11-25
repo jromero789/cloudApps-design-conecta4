@@ -1,4 +1,4 @@
-package usantatecla.intervals;
+package usantatecla.intervals.v99;
 
 import static org.junit.Assert.assertTrue;
 

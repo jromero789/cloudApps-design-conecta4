@@ -274,3 +274,16 @@ Experto en Información => la clase responsable es la que tiene la información
 ## <em>**Versión 26**</em>
 
 - Extraer metodos comunes en los CustomerTest
+
+
+
+
+# Intervals TDD
+
+## <em>**Versión 01**</em>
+
+- Test isIncluded devueve true
+
+## <em>**Versión 99**</em>
+
+- Versión de referencia
