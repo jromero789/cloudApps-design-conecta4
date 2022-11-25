@@ -11,6 +11,10 @@ public class Rental {
 		this.daysRented = daysRented;
 	}
 	
+	public String getTitle() {
+		return movie.getTitle();
+	}
+
 	public double getCharge() {
 		return movie.getCharge(daysRented);
 	}

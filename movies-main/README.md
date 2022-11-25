@@ -258,3 +258,7 @@ Experto en Información => la clase responsable es la que tiene la información
 ## <em>**Versión 22**</em>
 
 - En customer, sustituir los iteradores de Rental por bucles for
+
+## <em>**Versión 23**</em>
+
+- Rental pregunta a Movie por el title
