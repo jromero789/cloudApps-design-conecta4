@@ -47,3 +47,6 @@ Contiene modelo del dominio en diagrama de clases
 2. (2.0p) Comprendes los conceptos 2.5p (patrones, conocimiento, software) 2.5p
 3. (1.5p) Leyendo el tictactoe identificas los conceptos enseñados en teoría. 2.5p
 4. (1.5p) Lo que yo creo que valdria la practica. 2.5p
+
+## Programación extrema (A evaluar)
+movies-main contiene los ejercicios de refactorización de movies y TDD con intervalos
